@@ -58,6 +58,27 @@ def phoenix_items(phoenix_context: DocumentContext):
     return get("phoenix-az").extract(phoenix_context)
 
 
+@pytest.fixture()
+def live_data_dir(tmp_path) -> Path:
+    """A throwaway copy of the repository's committed archive.
+
+    Copied rather than used in place so a test can never append to the real
+    change feed, and so the suite does not depend on whatever the collector
+    timer last wrote.
+    """
+    import shutil
+
+    source = Path(__file__).resolve().parent.parent / "data"
+    if not source.exists():  # pragma: no cover - repo always ships one
+        pytest.skip("no committed archive to diff")
+    destination = tmp_path / "data"
+    shutil.copytree(source, destination)
+    # The feed itself is an output, not an input; a copied one would make the
+    # "second run appends nothing" test pass without proving anything.
+    (destination / "changes.jsonl").unlink(missing_ok=True)
+    return destination
+
+
 def item(items, item_id: str):
     """The one row with this id, or a readable failure."""
     matches = [i for i in items if i.item_id == item_id]

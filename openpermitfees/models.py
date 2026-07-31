@@ -346,6 +346,42 @@ class ChangeEvent:
     def to_dict(self) -> dict[str, Any]:
         return {k: v for k, v in asdict(self).items() if v is not None}
 
+    @property
+    def event_key(self) -> str:
+        """Identity of the difference itself, independent of when we computed it.
+
+        An event describes a pair of documents, not a run. Recomputing the diff
+        tomorrow over the same archive must yield the same key, so an append-only
+        feed can skip what it has already recorded. ``observed_at`` is deliberately
+        excluded: it is when we *noticed*, and including it would let a daily timer
+        re-emit the same ``first_observed`` rows forever, manufacturing a change
+        feed out of its own schedule.
+        """
+        return "|".join(
+            (
+                self.jurisdiction_id,
+                self.event_type,
+                self.item_id,
+                self.field_name or "",
+                self.from_document_sha256 or "",
+                self.to_document_sha256,
+            )
+        )
+
+
+def event_key_of(payload: dict[str, Any]) -> str:
+    """``event_key`` for an already-serialised event, for reading a feed back."""
+    return "|".join(
+        (
+            payload.get("jurisdiction_id", ""),
+            payload.get("event_type", ""),
+            payload.get("item_id", ""),
+            payload.get("field_name") or "",
+            payload.get("from_document_sha256") or "",
+            payload.get("to_document_sha256", ""),
+        )
+    )
+
 
 @dataclass
 class FeeDocument:
@@ -385,5 +421,6 @@ __all__ = [
     "STATUS",
     "SchemaViolation",
     "ValuationTier",
+    "event_key_of",
     "today_iso",
 ]

@@ -3,7 +3,7 @@
 Machine-readable US building-permit fee schedules, cited to the document that
 adopted them.
 
-*Generated 2026-07-31T17:23:53+00:00 · schema `1.0.0` · license CC BY 4.0*
+*Generated 2026-07-31T17:58:02+00:00 · schema `1.0.0` · license CC BY 4.0*
 
 ## What is in it
 

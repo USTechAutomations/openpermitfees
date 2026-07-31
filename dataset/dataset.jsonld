@@ -7,7 +7,7 @@
     "name": "US Tech Automations",
     "url": "https://ustechautomations.com/permits"
   },
-  "dateModified": "2026-07-31T17:23:53+00:00",
+  "dateModified": "2026-07-31T17:58:02+00:00",
   "description": "Machine-readable US building-permit fee schedules. Every fee carries the source document URL, its sha256 digest, the retrieval timestamp, the adopting ordinance and the effective date, plus the page and line it was read from. Fees that a jurisdiction does not publish are recorded as such rather than estimated.",
   "distribution": [
     {

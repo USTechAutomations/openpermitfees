@@ -24,6 +24,7 @@ from .archive import Archive
 from .collect import Collector
 from .diff import diff_extractions
 from .export import write_exports
+from .models import event_key_of
 from .registry import load_registry
 
 DEFAULT_DATA_DIR = Path("data")
@@ -124,15 +125,55 @@ def cmd_diff(args: argparse.Namespace) -> int:
             )
             events.extend(diff_extractions(previous, current, observed_at=observed_at))
 
-    lines = "".join(json.dumps(event.to_dict(), sort_keys=True) + "\n" for event in events)
-    if args.out:
-        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-        with Path(args.out).open("a", encoding="utf-8") as handle:
-            handle.write(lines)
-        print(f"{len(events)} change events -> {args.out}")
-    else:
-        sys.stdout.write(lines)
+    if not args.out:
+        # stdout is a query: show the full diff of the archive as it stands.
+        sys.stdout.write(
+            "".join(json.dumps(event.to_dict(), sort_keys=True) + "\n" for event in events)
+        )
+        return 0
+
+    # --out is an append-only FEED, and a feed is read as "these things happened".
+    # The diff is recomputed from the whole archive on every run, so without this
+    # a daily timer would re-append the same `first_observed` rows every day and
+    # the feed would report ten changes a day that never happened. An event is
+    # identified by the document pair it describes, not by the run that found it.
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    already = _recorded_event_keys(out)
+    fresh = [event for event in events if event.event_key not in already]
+
+    if fresh:
+        with out.open("a", encoding="utf-8") as handle:
+            handle.write(
+                "".join(json.dumps(event.to_dict(), sort_keys=True) + "\n" for event in fresh)
+            )
+    print(
+        f"{len(fresh)} new change events -> {args.out} "
+        f"({len(events) - len(fresh)} already recorded)"
+    )
     return 0
+
+
+def _recorded_event_keys(path: Path) -> set[str]:
+    """Keys already in the feed. A corrupt line is skipped, never treated as absent.
+
+    Reading a damaged feed as empty would re-append the entire history, so an
+    unparseable line raises rather than silently licensing a duplicate flood.
+    """
+    if not path.exists():
+        return set()
+    keys: set[str] = set()
+    with path.open(encoding="utf-8") as handle:
+        for number, line in enumerate(handle, start=1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                keys.add(event_key_of(json.loads(line)))
+            except json.JSONDecodeError as exc:
+                raise SystemExit(f"{path}:{number}: change feed is not readable ({exc}). "
+                                 "Refusing to append — fix or move the file first.")
+    return keys
 
 
 def cmd_export(args: argparse.Namespace) -> int:
