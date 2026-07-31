@@ -1,0 +1,18 @@
+{
+  "id": "phoenix-az",
+  "name": "Phoenix, AZ",
+  "state": "AZ",
+  "population": 1608139,
+  "permit_office_url": "https://www.phoenix.gov/administration/departments/pdd.html",
+  "extractor": "phoenix-az",
+  "tags": ["az-metro", "v1"],
+  "notes": "Planning & Development Department fee schedule, adopted as Appendix A.2 of the Phoenix City Code, Chapter 9. Trade permits (mechanical, electrical, plumbing) have no flat fee: installation, repair and replacement work is priced from Table A on project valuation.",
+  "documents": [
+    {
+      "url": "https://www.phoenix.gov/content/dam/phoenix/pddsite/documents/impact-fees/fee-schedule.pdf",
+      "media_type": "application/pdf",
+      "label": "PDD Fee Schedule",
+      "found_on": "https://www.phoenix.gov/administration/departments/pdd/tools-resources/fees.html"
+    }
+  ]
+}

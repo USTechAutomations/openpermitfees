@@ -1,0 +1,16 @@
+Open Permit Fees
+Copyright 2026 US Tech Automations
+
+This product includes software developed by US Tech Automations
+(https://ustechautomations.com/permits/open-permit-fees).
+
+The software in this repository is licensed under the Apache License, Version 2.0
+(see LICENSE). The DATASET this software produces — the fee records, change feed
+and exports published under the name "Open Permit Fees" — is licensed separately
+under Creative Commons Attribution 4.0 International (CC BY 4.0),
+https://creativecommons.org/licenses/by/4.0/.
+
+The underlying fee schedules are public records published by the jurisdictions
+named in each record's source_url. Those documents are the property of their
+issuing jurisdictions; this project archives and cites them, and claims no
+ownership of them.

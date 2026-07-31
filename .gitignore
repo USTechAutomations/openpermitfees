@@ -1,0 +1,17 @@
+# build / packaging
+build/
+dist/
+*.egg-info/
+
+# environments
+.venv/
+venv/
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# secrets — this project needs none; the rule is here so it never acquires one
+.env
+*.env

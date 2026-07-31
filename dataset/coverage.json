@@ -1,0 +1,17 @@
+{
+  "by_basis": {
+    "flat": 1,
+    "option": 5,
+    "reference": 3,
+    "valuation_tiered": 1
+  },
+  "by_status": {
+    "not_found_in_document": 2,
+    "published": 8
+  },
+  "generated_from": "data",
+  "jurisdictions": 1,
+  "rows": 10,
+  "rows_with_effective_date": 8,
+  "schema_version": "1.0.0"
+}

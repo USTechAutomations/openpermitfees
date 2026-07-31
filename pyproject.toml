@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openpermitfees"
+version = "0.1.0"
+description = "Machine-readable US building-permit fee schedules, cited to the document that adopted them"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "US Tech Automations" }]
+keywords = [
+    "building permits",
+    "permit fees",
+    "fee schedule",
+    "municipal data",
+    "open data",
+    "construction",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
+]
+# Runtime dependencies: none. The collector is stdlib-only on purpose — a
+# dependency that stops building is the same outage as a parser that breaks, and
+# this package's whole promise is that its output does not silently rot.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://ustechautomations.com/permits/open-permit-fees"
+Dataset = "https://ustechautomations.com/permits/open-permit-fees"
+
+[project.scripts]
+openpermitfees = "openpermitfees.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["openpermitfees*"]
+
+[tool.setuptools.package-data]
+openpermitfees = ["jurisdictions/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

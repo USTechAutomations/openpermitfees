@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "creativeWorkStatus": "Incremental",
+  "dateModified": "2026-07-31T17:03:24+00:00",
+  "description": "Machine-readable US building-permit fee schedules. Every fee carries the source document URL, its sha256 digest, the retrieval timestamp, the adopting ordinance and the effective date, plus the page and line it was read from. Fees that a jurisdiction does not publish are recorded as such rather than estimated.",
+  "isAccessibleForFree": true,
+  "keywords": [
+    "building permit fees",
+    "permit fee schedule",
+    "municipal fees",
+    "construction permitting",
+    "solar permit fees"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "name": "Open Permit Fees",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "AZ"
+    }
+  ],
+  "url": "https://ustechautomations.com/permits/open-permit-fees",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "amount_usd"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "basis"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "effective_date"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "tiers"
+    }
+  ],
+  "version": "1.0.0"
+}
