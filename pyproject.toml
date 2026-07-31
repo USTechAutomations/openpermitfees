@@ -36,8 +36,11 @@ dependencies = []
 dev = ["pytest>=7"]
 
 [project.urls]
-Homepage = "https://ustechautomations.com/permits/open-permit-fees"
-Dataset = "https://ustechautomations.com/permits/open-permit-fees"
+Homepage = "https://github.com/USTechAutomations/openpermitfees"
+Source = "https://github.com/USTechAutomations/openpermitfees"
+Issues = "https://github.com/USTechAutomations/openpermitfees/issues"
+Dataset = "https://github.com/USTechAutomations/openpermitfees/tree/main/dataset"
+Publisher = "https://ustechautomations.com/permits"
 
 [project.scripts]
 openpermitfees = "openpermitfees.cli:main"

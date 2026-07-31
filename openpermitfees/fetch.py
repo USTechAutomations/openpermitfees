@@ -26,8 +26,11 @@ from typing import Optional
 
 __version__ = "0.1.0"
 
+# The contact URL a permitting department will actually open when they see this
+# in their logs. It must resolve to something that explains the crawler and
+# takes an issue — the repository does both, today.
 USER_AGENT = (
-    f"openpermitfees/{__version__} (+https://ustechautomations.com/permits/open-permit-fees; "
+    f"openpermitfees/{__version__} (+https://github.com/USTechAutomations/openpermitfees; "
     "public fee-schedule collector)"
 )
 

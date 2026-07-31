@@ -3,7 +3,7 @@
 Machine-readable US building-permit fee schedules, cited to the document that
 adopted them.
 
-*Generated 2026-07-31T17:03:24+00:00 · schema `1.0.0` · license CC BY 4.0*
+*Generated 2026-07-31T17:23:53+00:00 · schema `1.0.0` · license CC BY 4.0*
 
 ## What is in it
 
@@ -56,7 +56,7 @@ never dates a fee to the day we started collecting.
 
 ## Citation
 
-> Open Permit Fees (2026). US Tech Automations. https://ustechautomations.com/permits/open-permit-fees
+> Open Permit Fees (2026). US Tech Automations. https://github.com/USTechAutomations/openpermitfees
 
 ## Reproducing it
 

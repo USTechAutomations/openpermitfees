@@ -170,7 +170,7 @@ with the `item_id` and what the document says.
 - **Code** — Apache License 2.0 (`LICENSE`).
 - **Dataset** — Creative Commons Attribution 4.0 International (CC BY 4.0).
   Cite as: *Open Permit Fees (2026). US Tech Automations.
-  https://ustechautomations.com/permits/open-permit-fees*
+  https://github.com/USTechAutomations/openpermitfees*
 - **Underlying fee schedules** — public records of the jurisdictions named in each
   record's `source_url`. This project archives and cites them; it claims no
   ownership of them.

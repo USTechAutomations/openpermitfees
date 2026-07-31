@@ -25,7 +25,16 @@ from .models import SCHEMA_VERSION
 
 DATASET_NAME = "Open Permit Fees"
 DATASET_SLUG = "open-permit-fees"
-DATASET_URL = "https://ustechautomations.com/permits/open-permit-fees"
+# The dataset's home is the repository, because that is the URL that resolves
+# today and holds every version. Citing a page we have not built yet would put
+# a 404 in the one place a reader goes to check us.
+DATASET_URL = "https://github.com/USTechAutomations/openpermitfees"
+DOWNLOAD_URL = (
+    "https://raw.githubusercontent.com/USTechAutomations/openpermitfees"
+    f"/main/dataset/{DATASET_SLUG}.jsonl"
+)
+PUBLISHER_NAME = "US Tech Automations"
+PUBLISHER_URL = "https://ustechautomations.com/permits"
 LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
 LICENSE_NAME = "CC BY 4.0"
 
@@ -159,7 +168,7 @@ def coverage(rows: list[dict[str, Any]], *, generated_from: str) -> Coverage:
 
 
 def schema_org_dataset(
-    rows: list[dict[str, Any]], *, generated_at: str, download_url: Optional[str] = None
+    rows: list[dict[str, Any]], *, generated_at: str, download_url: Optional[str] = DOWNLOAD_URL
 ) -> dict[str, Any]:
     """schema.org/Dataset markup — what Google Dataset Search reads."""
     states = sorted({row["state"] for row in rows if row.get("state")})
@@ -179,6 +188,11 @@ def schema_org_dataset(
         "version": SCHEMA_VERSION,
         "dateModified": generated_at,
         "isAccessibleForFree": True,
+        "creator": {
+            "@type": "Organization",
+            "name": PUBLISHER_NAME,
+            "url": PUBLISHER_URL,
+        },
         "creativeWorkStatus": "Incremental",
         "keywords": [
             "building permit fees",
@@ -267,7 +281,7 @@ never dates a fee to the day we started collecting.
 
 ## Citation
 
-> {DATASET_NAME} ({generated_at[:4]}). US Tech Automations. {DATASET_URL}
+> {DATASET_NAME} ({generated_at[:4]}). {PUBLISHER_NAME}. {DATASET_URL}
 
 ## Reproducing it
 

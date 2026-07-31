@@ -2,8 +2,20 @@
   "@context": "https://schema.org/",
   "@type": "Dataset",
   "creativeWorkStatus": "Incremental",
-  "dateModified": "2026-07-31T17:03:24+00:00",
+  "creator": {
+    "@type": "Organization",
+    "name": "US Tech Automations",
+    "url": "https://ustechautomations.com/permits"
+  },
+  "dateModified": "2026-07-31T17:23:53+00:00",
   "description": "Machine-readable US building-permit fee schedules. Every fee carries the source document URL, its sha256 digest, the retrieval timestamp, the adopting ordinance and the effective date, plus the page and line it was read from. Fees that a jurisdiction does not publish are recorded as such rather than estimated.",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://raw.githubusercontent.com/USTechAutomations/openpermitfees/main/dataset/open-permit-fees.jsonl",
+      "encodingFormat": "application/x-ndjson"
+    }
+  ],
   "isAccessibleForFree": true,
   "keywords": [
     "building permit fees",
@@ -20,7 +32,7 @@
       "name": "AZ"
     }
   ],
-  "url": "https://ustechautomations.com/permits/open-permit-fees",
+  "url": "https://github.com/USTechAutomations/openpermitfees",
   "variableMeasured": [
     {
       "@type": "PropertyValue",
