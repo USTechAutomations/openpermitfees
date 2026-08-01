@@ -55,8 +55,10 @@ than a fabricated figure. Those rows ship with the dataset.
 
 ## Install
 
+Straight from this repository (the package is not yet published to PyPI):
+
 ```bash
-pip install openpermitfees
+pip install git+https://github.com/USTechAutomations/openpermitfees.git
 ```
 
 Extraction shells out to `pdftotext` (poppler), because fee schedules are tables
@@ -158,6 +160,25 @@ See `dataset/coverage.json` for the current counts by status, and
 
 Extractors must never infer, average, or regionally estimate a number. The schema
 will refuse it anyway.
+
+## Commission a jurisdiction
+
+If you need a jurisdiction this dataset doesn't cover yet — you run permit
+expediting, cost estimation, or a construction-software product and want
+citation-grade fee data for a specific city — we build it for you as a
+commissioned extraction. US Tech Automations (the company behind this project)
+writes the purpose-built extractor, extracts the full fee schedule with every
+row cited to page and line of the adopting document, and delivers it as a pull
+request to this public repository within ten business days. The work is
+priced at $249 per jurisdiction, one-time; this is our service fee, not a
+government charge. The result lands under the same CC BY 4.0 dataset license
+as everything else here — the paid path funds the free one, and every
+commissioned jurisdiction becomes permanently citable by anyone.
+
+To commission one, tell us the jurisdiction at
+[ustechautomations.com/partner?interest=openpermitfees](https://ustechautomations.com/partner?interest=openpermitfees)
+and we reply the same working day. Related paid data services live at
+[ustechautomations.com/permits/offers](https://ustechautomations.com/permits/offers).
 
 ## Contributing corrections
 
