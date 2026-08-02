@@ -175,9 +175,7 @@ government charge. The result lands under the same CC BY 4.0 dataset license
 as everything else here — the paid path funds the free one, and every
 commissioned jurisdiction becomes permanently citable by anyone.
 
-To commission one, tell us the jurisdiction at
-[ustechautomations.com/partner?interest=openpermitfees](https://ustechautomations.com/partner?interest=openpermitfees)
-and we reply the same working day. Related paid data services live at
+To commission one, [open a structured commission request](https://github.com/USTechAutomations/openpermitfees/issues/new?template=commission-request.yml) — US Tech Automations replies in the issue the same working day. Related paid data services live at
 [ustechautomations.com/permits/offers](https://ustechautomations.com/permits/offers).
 
 ## Contributing corrections

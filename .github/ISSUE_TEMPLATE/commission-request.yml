@@ -1,0 +1,53 @@
+name: Commission a Jurisdiction
+description: Request a citation-grade permit-fee extraction for one US jurisdiction ($249 one-time, delivered as a public-repo pull request within ten business days).
+title: "[Commission Request] "
+labels:
+  - commission-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        US Tech Automations commissions one citation-grade US jurisdiction permit-fee extraction for **$249 one-time**, delivered as a pull request to this public repository within **ten business days**. Every row is cited to page and line. Output is licensed **CC BY 4.0**.
+
+        This is a service fee paid to US Tech Automations, not a government charge.
+
+        Do not include personal data, credentials, API keys, private documents, or other secrets in this issue. We do not collect payment information here.
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction
+      description: City or county plus state.
+      placeholder: Mesa, Arizona
+    validations:
+      required: true
+  - type: input
+    id: organization
+    attributes:
+      label: Organization or team
+      description: The organization or team requesting the extraction.
+      placeholder: Example Permitting Co., Data Engineering
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Intended use
+      description: How you plan to use the extracted fee data.
+      placeholder: Estimating residential solar permit costs across our service territory.
+    validations:
+      required: true
+  - type: input
+    id: timing
+    attributes:
+      label: Preferred timing
+      description: When you would like delivery. Standard turnaround is ten business days.
+      placeholder: Within the next three weeks
+    validations:
+      required: true
+  - type: checkboxes
+    id: public_issue
+    attributes:
+      label: Public issue acknowledgement
+      options:
+        - label: I understand this request is public and I have not included personal data, credentials, API keys, private documents, or other secrets.
+          required: true
