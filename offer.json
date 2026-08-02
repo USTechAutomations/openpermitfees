@@ -1,0 +1,36 @@
+{
+  "schema_version": "usta.openpermitfees-offer.v1",
+  "sku": "commissioned-jurisdiction",
+  "status": "request_only",
+  "buyer_roles": [
+    "permit expediter",
+    "construction cost-estimation team",
+    "construction-software product manager"
+  ],
+  "problem": "Open Permit Fees is a public dataset of US building-permit fee schedules. If you are a permit expediter, a construction cost-estimation team, or a construction-software product manager, the jurisdiction you need may not be in the dataset yet.",
+  "offer_summary": "Commission one jurisdiction for $249, once. You get a purpose-built extractor plus the full fee schedule, with every row cited to the page and line of the adopting document, delivered as a pull request to the public repository within 10 business days under CC BY 4.0.",
+  "price": {
+    "amount_cents": 24900,
+    "currency": "USD",
+    "cadence": "once"
+  },
+  "delivery": {
+    "within_business_days": 10,
+    "method": "pull request to the public repository",
+    "license": "CC BY 4.0"
+  },
+  "request": {
+    "url": "https://github.com/USTechAutomations/openpermitfees/issues/new?template=commission-request.yml",
+    "notice": "The GitHub issue form is a request for review. Submitting it does not purchase anything. Checkout is off, so nothing is charged at submission; if the request moves forward, a human sends any later payment link."
+  },
+  "payment": {
+    "checkout_armed": false,
+    "human_sends_payment_link": true
+  },
+  "attribution": {
+    "path_id": "openpermitfees:commissioned-jurisdiction:contact",
+    "hypothesis_id": "h-openpermitfees-commissioned-jurisdiction-2026-08",
+    "artifact_id": "openpermitfees-readme-commission-offer",
+    "job_id": "openpermitfees-contact-ingest"
+  }
+}

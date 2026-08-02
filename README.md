@@ -178,6 +178,9 @@ commissioned jurisdiction becomes permanently citable by anyone.
 To commission one, [open a structured commission request](https://github.com/USTechAutomations/openpermitfees/issues/new?template=commission-request.yml) — US Tech Automations replies in the issue the same working day. Related paid data services live at
 [ustechautomations.com/permits/offers](https://ustechautomations.com/permits/offers).
 
+The same Open Permit Fees $249 commissioned-jurisdiction offer is also available
+as a [machine-readable offer contract](offer.json).
+
 ## Contributing corrections
 
 If a number here disagrees with the document, that is a bug and the citation is
