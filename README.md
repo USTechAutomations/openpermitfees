@@ -53,6 +53,13 @@ jurisdiction adopted — `flat`, `option`, `valuation_tiered`, `per_unit`,
 this permit type; it is priced from Table A" is more useful, and more honest,
 than a fabricated figure. Those rows ship with the dataset.
 
+## Download the dataset
+
+The [current dataset release](https://github.com/USTechAutomations/openpermitfees/releases/tag/v0.1.0)
+provides direct CSV and JSONL downloads, a machine-readable coverage report,
+the dataset card, and schema.org metadata. You do not need Python or a clone of
+this repository to inspect the cited fee records.
+
 ## Install
 
 Straight from this repository (the package is not yet published to PyPI):
